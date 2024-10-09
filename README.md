@@ -1,5 +1,6 @@
 # test
  Deployment Test by Commvault for SRE Role (Progress done till Mileston 2)
+ Link: http://16.170.228.144:5000/
 
  Task: cloud-based Image management application using Amazon Web Services (AWS) and Python.
 
