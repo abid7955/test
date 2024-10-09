@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Upload an Image</h1>
+
+        <!-- Flash messages for feedback -->
+        {% with messages = get_flashed_messages(with_categories=True) %}
+          {% if messages %}
+            <div>
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}" role="alert">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <!-- Form to upload image -->
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="image">Choose an Image</label>
+                <input type="file" class="form-control-file" name="image" id="image" accept="image/*" required>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="encrypt" id="encrypt">
+                <label class="form-check-label" for="encrypt">Encrypt images while uploading</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+
+        <a href="/list" class="btn btn-link mt-3">View Uploaded Images</a>
+    </div>
+</body>
+</html>
